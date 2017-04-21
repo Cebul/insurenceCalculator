@@ -1,0 +1,45 @@
+body
+{
+  background-color: #999;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.header h2 {
+  text-transform: uppercase;
+  text-align: center;
+  color: #1F5377;
+  margin-top: 50px;
+}
+.sum {
+  text-align: center;
+}
+.rates ul li {
+  list-style-type: none;
+}
+.card {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+.card p {
+  color: #EF3939;
+  padding-top: 10px;
+}
+.card label {
+  margin-top: 15px;
+}
+.mybtn {
+  margin-top: 10px;
+}
+.summary {
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+}
+.summary p {
+  font-size: 30px;
+  color: #2D962D;
+}

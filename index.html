@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Netins Academy</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+  <link rel="stylesheet" href="js/lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="myApp" ng-controller="OptionCtrl" ng-view>
+
+  <form name="myForm" class="card" ng-submit="result()" novalidate>
+    <div class="container">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+            <div class="header">
+              <h2>Kalkulator &nbsp;składki ubezpieczeniowej</h2>
+            </div>
+            <label for="">Wybierz przedział sumy ubezpieczenia:</label>
+            <select class="form-control" name="rates" ng-model="rat" ng-required="true" ng-options="rate.compar for rate in rates">
+            <option value="">Przedział sumy</option>
+            </select>
+            <p ng-show="myForm.rates.$invalid && myForm.rates.$touched" no-cloak>Wybierz przedział.</p>
+
+            <label for="">Podaj sume ubezpieczenia [PLN]:</label>
+            <input type="number" class="form-control" id="insur" min="100" max="10000" name="insurance" ng-model="insurance" ng-required="true" placeholder="Wpisz sume ubezpieczenia:">
+            <p ng-show="myForm.insurance.$invalid && myForm.insurance.$touched" no-cloak>Podaj poprawna sume ubezpieczenia.</p>
+
+            <label for="">Określ szkodliwość:</label>
+            <select name="misch" class="mischev form-control" ng-model="misch" ng-required="true" ng-options="misch.description for misch in misches">
+              <option value="">Wybierz szkodliwość</option>
+            </select>
+            <p ng-show="myForm.misch.$invalid && myForm.misch.$touched" no-cloak>Wybierz szkodliwość.</p>
+
+            <label for="">Wybierz formę płatności:</label>
+            <select name="payment" class="form-control" ng-model="payment" ng-options="payment.description for payment in payments" ng-required="true">
+              <option value="">Wybierz rodzaj spłaty</option>
+            </select>
+            <p ng-show="myForm.payment.$invalid && myForm.payment.$touched" no-cloak>Wybierz formę płatności.</p>
+
+            <input type="submit" class="btn btn-success mybtn" value="Zatwierdź">
+
+          </div><!-- col -->   
+        </div><!-- form-group -->
+      </div><!-- row -->
+    </div><!-- container -->
+  </form><!-- form -->
+
+  <div class="summary">
+      <h3>Twoja składka to:</h3>
+      <p>{{ myResult }}</p>
+  </div>
+
+  <script src="js/lib/angular.min.js"></script>
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  
+</body>
+</html>
